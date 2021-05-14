@@ -81,10 +81,10 @@ function onItemSaveComplete(response, status)
 $(document).on("click", ".btnUpdate", function(event)
 {
 	$("#hidItemIDSave").val($(this).data("userid"));
-	$("#UserNameId").val($(this).closest("tr").find('td:eq(0)').text());
-	$("#UserEmailId").val($(this).closest("tr").find('td:eq(1)').text());
-	$("#UserPWDId").val($(this).closest("tr").find('td:eq(2)').text());
-	$("#UserContactId").val($(this).closest("tr").find('td:eq(3)').text());
+	$("#UserNameId").val($(this).closest("tr").find('td:eq(1)').text());
+	$("#UserEmailId").val($(this).closest("tr").find('td:eq(2)').text());
+	$("#UserPWDId").val($(this).closest("tr").find('td:eq(3)').text());
+	$("#UserContactId").val($(this).closest("tr").find('td:eq(4)').text());
 	$("#UserRoleId").val($(this).closest("tr").find('td:eq(5)').text());
 });
 

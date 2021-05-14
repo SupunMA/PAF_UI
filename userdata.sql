@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 14, 2021 at 02:22 PM
+-- Generation Time: May 14, 2021 at 05:20 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -41,8 +41,7 @@ CREATE TABLE `userdetails` (
 --
 
 INSERT INTO `userdetails` (`uid`, `uname`, `uemail`, `upassword`, `ucontactnumber`, `urole`) VALUES
-(2, 'Amal', 'amal@a.com', 'amal123', '0774658736', 7),
-(3, 'Supun', 'supun@a.com', '123', '0723758746', 7);
+(20, '19', 'Supun', 'supun!@#', '112404688', 7);
 
 -- --------------------------------------------------------
 
@@ -87,7 +86,7 @@ ALTER TABLE `userroles`
 -- AUTO_INCREMENT for table `userdetails`
 --
 ALTER TABLE `userdetails`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `userroles`
