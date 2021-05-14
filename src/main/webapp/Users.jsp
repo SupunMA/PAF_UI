@@ -5,7 +5,7 @@ pageEncoding="ISO-8859-1"%>
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
-		<title>Items Management</title>
+		<title>Users Management</title>
 		<link rel="stylesheet" href="Views/bootstrap.min.css">
 		<script src="Components/jquery-3.2.1.min.js"></script>
 		<script src="Components/items.js"></script>
@@ -15,13 +15,13 @@ pageEncoding="ISO-8859-1"%>
 			<div class="row">
 				<div class="col-6"> 
 					<h1>User Management</h1>
-					<form id="formItem" name="formUser">
+					<form id="formUserID" name="formUser">
 						 User Name: 
 						 <input id="UserNameId" name="UserName" type="text" class="form-control form-control-sm">
 						 <br> User Email: 
 						 <input id="UserEmailId" name="UserEmail" type="text" class="form-control form-control-sm">
 						 <br> User Password: 
-						 <input id="UserPWDId" name="UserPWD" type="text" class="form-control form-control-sm">
+						 <input id="UserPWDId" name="UserPWD" type="password" class="form-control form-control-sm">
 						 <br> User Contact Number: 
 						 <input id="UserContactId" name="UserContact" type="text" class="form-control form-control-sm">
 						 <br> User Role:

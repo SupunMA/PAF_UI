@@ -35,7 +35,7 @@ $(document).on("click", "#btnSave", function(event)
 	{
 		url : "UsersAPI",
 		type : type,
-		data : $("#formUser").serialize(),
+		data : $("#formUserID").serialize(),
 		dataType : "text",
 		complete : function(response, status)
 		{
@@ -80,7 +80,7 @@ function onItemSaveComplete(response, status)
 //form fill 
 $(document).on("click", ".btnUpdate", function(event)
 {
-	$("#hidItemIDSave").val($(this).data("itemid"));
+	$("#hidItemIDSave").val($(this).data("userid"));
 	$("#UserNameId").val($(this).closest("tr").find('td:eq(0)').text());
 	$("#UserEmailId").val($(this).closest("tr").find('td:eq(1)').text());
 	$("#UserPWDId").val($(this).closest("tr").find('td:eq(2)').text());
@@ -137,7 +137,7 @@ $(document).on("click", ".btnRemove", function(event)
 	{
 		url : "UsersAPI",
 		type : "DELETE",
-		data : "UserID=" + $(this).data("uid"),
+		data : "UserID=" + $(this).data("userid"),
 		dataType : "text",
 		complete : function(response, status)
 		{
