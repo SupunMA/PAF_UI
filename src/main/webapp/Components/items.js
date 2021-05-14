@@ -29,13 +29,13 @@ $(document).on("click", "#btnSave", function(event)
 	}
 	
 	// If valid-----------------------
-	var type = ($("#hidItemIDSave").val() == "") ? "POST" : "PUT";
+	var type = ($("#hidUserIDSave").val() == "") ? "POST" : "PUT";
 	
 	$.ajax(
 	{
-		url : "ItemsAPI",
+		url : "UsersAPI",
 		type : type,
-		data : $("#formItem").serialize(),
+		data : $("#formUser").serialize(),
 		dataType : "text",
 		complete : function(response, status)
 		{
@@ -52,7 +52,7 @@ function onItemSaveComplete(response, status)
 
 		if (resultSet.status.trim() == "success")
 		{
-			$("#alertSuccess").text("Successfully saved.");
+			$("#alertSuccess").text("Successfully Registered.");
 			$("#alertSuccess").show();
 			
 			$("#divItemsGrid").html(resultSet.data);
@@ -64,7 +64,7 @@ function onItemSaveComplete(response, status)
 		
 	} else if (status == "error")
 	{
-		$("#alertError").text("Error while saving.");
+		$("#alertError").text("Error while Registering.");
 		$("#alertError").show();
 	} else
 	{
@@ -72,7 +72,7 @@ function onItemSaveComplete(response, status)
 		$("#alertError").show();
 	}
 	$("#hidItemIDSave").val("");
-	$("#formItem")[0].reset();
+	$("#formUser")[0].reset();
 }
 
 
@@ -81,10 +81,10 @@ function onItemSaveComplete(response, status)
 $(document).on("click", ".btnUpdate", function(event)
 {
 	$("#hidItemIDSave").val($(this).data("itemid"));
-	$("#itemCode").val($(this).closest("tr").find('td:eq(0)').text());
-	$("#itemName").val($(this).closest("tr").find('td:eq(1)').text());
-	$("#itemPrice").val($(this).closest("tr").find('td:eq(2)').text());
-	$("#itemDesc").val($(this).closest("tr").find('td:eq(3)').text());
+	$("#UserNameId").val($(this).closest("tr").find('td:eq(0)').text());
+	$("#UserEmailId").val($(this).closest("tr").find('td:eq(1)').text());
+	$("#UserPWDId").val($(this).closest("tr").find('td:eq(2)').text());
+	$("#UserContactId").val($(this).closest("tr").find('td:eq(3)').text());
 });
 
 
@@ -93,38 +93,38 @@ function validateItemForm()
 {
 	
 	// CODE
-	if ($("#itemCode").val().trim() == "")
+	if ($("#UserNameId").val().trim() == "")
 	{
-		return "Insert Item Code.";
+		return "Insert User Name.";
 	}
 	
 	
 	// NAME
-	if ($("#itemName").val().trim() == "")
+	if ($("#UserEmailId").val().trim() == "")
 	{
-		return "Insert Item Name.";
+		return "Insert Email Address.";
 	}
 	
 	// PRICE-------------------------------
-	if ($("#itemPrice").val().trim() == "")
+	if ($("#UserPWDId").val().trim() == "")
 	{
-		return "Insert Item Price.";
+		return "Insert Password.";
 	}
 	
 	// is numerical value
-	var tmpPrice = $("#itemPrice").val().trim();
+	var tmpPrice = $("#UserPWDId").val().trim();
 	if (!$.isNumeric(tmpPrice))
 	{
-		return "Insert a numerical value for Project  Price.";
+		return "Insert a numerical value for Password.";
 	}
 	
 	// convert to decimal price
-	$("#itemPrice").val(parseFloat(tmpPrice).toFixed(2));
+	$("#UserPWDId").val(parseFloat(tmpPrice).toFixed(2));
 	
 	// DESCRIPTION------------------------
-	if ($("#itemDesc").val().trim() == "")
+	if ($("#UserContactId").val().trim() == "")
 	{
-		return "Insert Item Description.";
+		return "Insert Contact Number.";
 	}
 return true;
 }
@@ -135,9 +135,9 @@ $(document).on("click", ".btnRemove", function(event)
 {
 	$.ajax(
 	{
-		url : "ItemsAPI",
+		url : "UsersAPI",
 		type : "DELETE",
-		data : "itemID=" + $(this).data("itemid"),
+		data : "UserID=" + $(this).data("uid"),
 		dataType : "text",
 		complete : function(response, status)
 		{

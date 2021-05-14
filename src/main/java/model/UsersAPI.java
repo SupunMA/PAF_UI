@@ -14,15 +14,15 @@ import java.util.Scanner;
 /**
  * Servlet implementation class ItemsAPI
  */
-@WebServlet("/ItemsAPI")
-public class ItemsAPI extends HttpServlet {
+@WebServlet("/UsersAPI")
+public class UsersAPI extends HttpServlet {
 	private static final long serialVersionUID = 1L;
      
-	Item itemObj = new Item(); 
+	Users userOBJ = new Users(); 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ItemsAPI() {
+    public UsersAPI() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -43,10 +43,12 @@ public class ItemsAPI extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
-		String output = itemObj.insertItem(request.getParameter("itemCode"), 
-				 request.getParameter("itemName"), 
-				request.getParameter("itemPrice"), 
-				request.getParameter("itemDesc")); 
+		String output = userOBJ.RegisterUser(
+				request.getParameter("UserName"), 
+				request.getParameter("UserEmail"),
+				 request.getParameter("UserPWD"), 
+				request.getParameter("UserContact"), 
+				request.getParameter("UserRole")); 
 				response.getWriter().write(output);
 				
 	}
@@ -57,11 +59,14 @@ public class ItemsAPI extends HttpServlet {
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		Map paras = getParasMap(request); 
-		 String output = itemObj.updateItem(paras.get("hidItemIDSave").toString(), 
-		 paras.get("itemCode").toString(), 
-		 paras.get("itemName").toString(), 
-		paras.get("itemPrice").toString(), 
-		paras.get("itemDesc").toString()); 
+		 String output = userOBJ.updateUser(
+		paras.get("hidItemIDSave").toString(), 
+		 paras.get("UserName").toString(), 
+		 paras.get("UserEmail").toString(), 
+		paras.get("UserPWD").toString(),
+		paras.get("UserContact").toString(),
+		paras.get("UserRole").toString());
+		 
 		response.getWriter().write(output);
 	}
 
@@ -71,7 +76,7 @@ public class ItemsAPI extends HttpServlet {
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		Map paras = getParasMap(request); 
-		 String output = itemObj.deleteItem(paras.get("itemID").toString()); 
+		 String output = userOBJ.deleteUser(paras.get("UserID").toString()); 
 		response.getWriter().write(output);
 	}
 	
