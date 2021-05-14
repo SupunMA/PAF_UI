@@ -55,7 +55,7 @@ function onItemSaveComplete(response, status)
 			$("#alertSuccess").text("Successfully Registered.");
 			$("#alertSuccess").show();
 			
-			$("#divItemsGrid").html(resultSet.data);
+			$("#divUsersGrid").html(resultSet.data);
 		} else if (resultSet.status.trim() == "error")
 		{
 			$("#alertError").text(resultSet.data);
@@ -85,6 +85,7 @@ $(document).on("click", ".btnUpdate", function(event)
 	$("#UserEmailId").val($(this).closest("tr").find('td:eq(1)').text());
 	$("#UserPWDId").val($(this).closest("tr").find('td:eq(2)').text());
 	$("#UserContactId").val($(this).closest("tr").find('td:eq(3)').text());
+	$("#UserRoleId").val($(this).closest("tr").find('td:eq(5)').text());
 });
 
 
@@ -111,21 +112,29 @@ function validateItemForm()
 		return "Insert Password.";
 	}
 	
-	// is numerical value
-	var tmpPrice = $("#UserPWDId").val().trim();
-	if (!$.isNumeric(tmpPrice))
+	
+	// Role Number-------------------------------
+	if ($("#UserRoleId").val().trim() == "")
 	{
-		return "Insert a numerical value for Password.";
+		return "Insert Role ID.";
 	}
 	
-	// convert to decimal price
-	$("#UserPWDId").val(parseFloat(tmpPrice).toFixed(2));
 	
-	// DESCRIPTION------------------------
+	
+	// User Contact Number------------------------
 	if ($("#UserContactId").val().trim() == "")
 	{
 		return "Insert Contact Number.";
 	}
+
+	// is numerical value
+	var tmpContact = $("#UserContactId").val().trim();
+	if (!$.isNumeric(tmpContact))
+	{
+		return "Insert a numerical value for Contact Number.";
+	}
+	
+	
 return true;
 }
 
@@ -156,7 +165,7 @@ function onItemDeleteComplete(response, status)
 			{
 				$("#alertSuccess").text("Successfully deleted.");
 				$("#alertSuccess").show();
-				$("#divItemsGrid").html(resultSet.data);
+				$("#divUsersGrid").html(resultSet.data);
 			} else if (resultSet.status.trim() == "error")
 				
 			{
